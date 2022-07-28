@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body {
+  @apply w-full h-full flex flex-col md:justify-center;
+  @apply bg-gradient-to-b from-cyan-500 to-blue-500;
+  @apply p-2;
+}
+
+p {
+  @apply mb-3;
+}
