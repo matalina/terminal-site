@@ -15,7 +15,9 @@ afterUpdate(() => {
 })
 
 </script>
-<header><strong class="text-gray-900">Alicia Wilkerson</strong> - Full Stack Developer</header>
+<header>
+  <img src="/favicon-32x32.png" alt=""/><span><strong class="text-gray-900">Alicia Wilkerson</strong> - Full Stack Developer</span>
+</header>
 <main bind:this={element}>
   <TextScreen />
   <CommandLine />
@@ -24,9 +26,13 @@ afterUpdate(() => {
 
 <style lang="postcss">
   header {
+    @apply flex items-center;
     @apply md:w-4/6 w-full mx-auto;
     @apply bg-gray-200 text-gray-800;
     @apply rounded-t-md px-3 py-1;
+  }
+  header img {
+    @apply mr-2;
   }
   footer {
     @apply md:w-4/6 w-full mx-auto;
