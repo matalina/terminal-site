@@ -1,5 +1,5 @@
 <script type="ts">
-import { history } from './../stores';
+import { history, current, subcommand } from './../stores';
 import { commands } from '../commands';
 import { error } from '../commands/error';
 import { onMount } from 'svelte';
@@ -10,9 +10,15 @@ function nextScreen(e) {
   if (e.charCode === 13) {
     if(command === 'clear') {
       history.update((history) => []);
+      current.update(() => 'clear');
     }
     else if(commands[command]) {
       history.update((history) => [ ...history, commands[command] ]);
+      current.update(() => command);
+    }
+    else if(commands[$current]?.subcommands[command]) {
+      history.update((history) => [commands[$current].subcommands[command]]);
+      subcommand.update(() => command);
     }
     else {
       error.args.command = command;
@@ -37,6 +43,7 @@ onMount(() => {
   
 <svelte:window on:click={setFocus} />
 
+{#if !$subcommand}
 <div class="command-line">
   <div class="domain">alicia@{domain}</div>
   <div class="prompt">$</div>
@@ -44,10 +51,11 @@ onMount(() => {
     <input type="text" bind:value={command} bind:this={commandLine} on:keypress={nextScreen}/>
   </div>
 </div>
+{/if}
 
 <style lang="postcss">
  .command-line {
-    @apply flex my-3 w-full;
+    @apply flex mb-3 w-full;
   }
   .command-line div {
     @apply mr-3;
@@ -59,9 +67,6 @@ onMount(() => {
     @apply text-green-300;
   }
   .command-line input {
-    @apply border-0 p-0 m-0 w-full;
-  }
-  input:focus{
-    outline-width: 0;
+    @apply m-0 p-0;
   }
 </style>

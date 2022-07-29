@@ -4,7 +4,7 @@
 
 </script>
 <Command command={args.command} />
-<p class="error">Unknown command</p>
+<p class="success">{args.message}</p>
 
 <style lang="postcss">
   

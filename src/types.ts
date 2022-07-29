@@ -4,4 +4,5 @@ export interface Command {
   command: string;
   component: SvelteComponent;
   args?: { [key: string]: any };
+  subcommands?: { [key: string]: Command; };
 }

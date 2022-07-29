@@ -9,6 +9,27 @@ html, body {
   @apply p-2;
 }
 
-p {
+p, pre {
   @apply mb-3;
+}
+.title {
+  @apply text-orange-600 font-bold;
+}
+strong {
+  @apply text-green-600;
+}
+code {
+  @apply uppercase text-sm text-pink-500;
+}
+input {
+  @apply border-0 p-0 m-0 w-full;
+}
+input:focus{
+  outline-width: 0;
+}
+.error {
+  @apply text-red-700;
+}
+.success  {
+  @apply text-teal-600;
 }

@@ -15,10 +15,5 @@ export let args;
 {/if}
 
 <style lang="postcss">
-  strong {
-    @apply text-green-600;
-  }
-  code {
-    @apply uppercase text-sm text-pink-500;
-  }
+ 
 </style>
