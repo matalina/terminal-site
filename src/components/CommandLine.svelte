@@ -2,6 +2,7 @@
 import { history, current, subcommand } from './../stores';
 import { commands } from '../commands';
 import { error } from '../commands/error';
+import { success } from '../commands/success';
 import { onMount } from 'svelte';
 
 let command;
@@ -11,6 +12,12 @@ function nextScreen(e) {
     if(command === 'clear') {
       history.update((history) => []);
       current.update(() => 'clear');
+    }
+    if(command === 'download') {
+      success.args.command = command;
+      success.args.message = 'File opened in new window';
+      history.update((history) => [ ...history, success ]);
+      window.open('/resume.pdf','_blank');
     }
     else if(commands[command]) {
       history.update((history) => [ ...history, commands[command] ]);

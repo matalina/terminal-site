@@ -15,7 +15,7 @@ afterUpdate(() => {
 })
 
 </script>
-<header><strong>Alicia Wilkerson</strong> - Full Stack Developer</header>
+<header><strong class="text-gray-900">Alicia Wilkerson</strong> - Full Stack Developer</header>
 <main bind:this={element}>
   <TextScreen />
   <CommandLine />

@@ -1,8 +1,12 @@
 <script type="ts">
+import Command from "./Command.svelte";
+
+
 
 </script>
 
-<p>Projects</p>
+<Command command='projects'/>
+<p class="title">Projects</p>
 
 <style lang="postcss">
   
