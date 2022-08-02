@@ -22,7 +22,7 @@ afterUpdate(() => {
   <TextScreen />
   <CommandLine />
 </main>
-<footer>Last updated: July 28, 2022</footer>
+<footer><div>v1.0.0</div> <div>Last updated: August 2, 2022</div></footer>
 
 <style lang="postcss">
   header {
@@ -39,6 +39,7 @@ afterUpdate(() => {
     @apply bg-gray-200 text-gray-500;
     @apply rounded-b-md px-3 py-1;
     @apply text-xs text-right;
+    @apply flex justify-between;
   }
   main {
     @apply flex flex-col overflow-y-scroll;

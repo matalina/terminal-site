@@ -13,7 +13,7 @@ function nextScreen(e) {
       history.update((history) => []);
       current.update(() => 'clear');
     }
-    if(command === 'download') {
+    else if(command === 'download') {
       success.args.command = command;
       success.args.message = 'File opened in new window';
       history.update((history) => [ ...history, success ]);
@@ -23,7 +23,7 @@ function nextScreen(e) {
       history.update((history) => [ ...history, commands[command] ]);
       current.update(() => command);
     }
-    else if(commands[$current]?.subcommands[command]) {
+    else if(commands[$current].subcommands && commands[$current].subcommands[command]) {
       history.update((history) => [commands[$current].subcommands[command]]);
       subcommand.update(() => command);
     }
